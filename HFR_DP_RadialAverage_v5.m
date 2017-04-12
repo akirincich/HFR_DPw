@@ -309,7 +309,10 @@ if isempty(R.Metric)==0 & isempty(find(~isnan(R.Metric(:))==1))==0  %%% skip fil
             a=a+1;
         end
     end
-    FLonLat(:,1)=FLonLat(:,1)-360;
+    %%% sometimes the longitude comes out greater than +/180deg, im not
+    %%% sure why.  and its not wrong mbut interfers with the plotting 
+    %%%   fix
+    i=find( FLonLat(:,1) >180);    FLonLat(i,1)=FLonLat(i,1)-360;
     FRangeBearHead(:,2)=true2math(FRangeBearHead(:,2));
     FRangeBearHead(:,3)=true2math(FRangeBearHead(:,3));
     
@@ -329,8 +332,11 @@ if isempty(R.Metric)==0 & isempty(find(~isnan(R.Metric(:))==1))==0  %%% skip fil
         [FmLonLat(a,1),FmLonLat(a,2),FmLonLat(a,3)]=m_fdist(R.SiteOrigin(1),R.SiteOrigin(2),patt.BearT(j),range(i).*1000);
         a=a+1;
     end
-    FmLonLat(:,1)=FmLonLat(:,1)-360;
-    
+    %%% sometimes the longitude comes out greater than +/180deg, im not
+    %%% sure why.  and its not wrong mbut interfers with the plotting 
+    %%%   fix
+    i=find( FmLonLat(:,1) >180);    FmLonLat(i,1)=FmLonLat(i,1)-360;
+
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %Start outgoing radial structure
     RADIAL(i5)=R;
