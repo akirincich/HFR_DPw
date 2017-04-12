@@ -174,7 +174,23 @@ if strcmp(CONST.FOL_type,'codarFOL')==1;
 %%% (2)  use a shell command to copy the resource fork to a binary file, and
 %%%   then read in following the directions of the perl script and COS, but
 %%%   directly into matlab
-[FOreg,FOregi,Alims,HEAD]=HFR_spectrsrc_load_v3([incoming_spectra_file_dir '/' char(fnames(jjj))],scripts_dir,CSS_Head,HEAD);
+%[FOreg,FOregi,Alims,HEAD]=HFR_spectrsrc_load_v3([incoming_spectra_file_dir '/' char(fnames(jjj))],scripts_dir,CSS_Head,HEAD);
+
+[FOreg,FOregi,Alims,HEAD]=HFR_spectrsrc_load_v4([incoming_spectra_file_dir '/' char(fnames(jjj))],scripts_dir,CSS_Head,HEAD,SpecHead);
+
+%%
+%%% plot the result if you wish
+if CONST.goplot(1)==1;
+    gain3=10*log10(abs(Data.a3)) + (-40. + 5.8);  %only works with plus...typo in COS manual
+    [n m]=size(gain3);
+
+    figure(7); clf;
+    subplot(211); pcolor(gain3); shading flat; colorbar; caxis([-160 -80]); title('Raw Ant3 Spectral Power with segments (red) and sFOLs (white) shown')
+    hold on;
+    [cs,ho]=contour(FOreg,[1 1],'w');
+    plot(Alims,(1:n)'*[1 1 1 1],'k','linewidth',2)
+end
+
 
 
 elseif strcmp(CONST.FOL_type,'imageFOL')==1;    
