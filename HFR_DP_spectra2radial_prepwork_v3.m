@@ -146,7 +146,7 @@ end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% get list of spectra in css folder
-f=dir([incoming_spectra_file_dir '/CSS*' site_name '*cs4']);
+f=dir([incoming_spectra_file_dir '/CSS*' site_name '*cs*']);
 fnames={}; fdates=[];
 for i=1:length(f)
     fnames(i)={f(i).name};
