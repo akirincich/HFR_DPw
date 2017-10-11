@@ -57,7 +57,7 @@
 %  HFR_DP performs NO temporal averaging.  Thus, the end result of HFR_DP
 %  is equivalent to COS-processed 'Radial Short' files.
 %
-%  There numerous types of output products available.  All are available for 
+%  There are numerous types of output products available.  All are available for 
 %  each individual spectral estimate submitted for processsing.  Outputs
 %  include:
 %
@@ -140,7 +140,7 @@
 %
 %    (2) Create a working directory structure as shown above for each site
 %        you intend to reprocess, or download the test data sets also
-%        distributed by Kirincich.
+%        distributed by Kirincich (https://github.com/akirincich/HFR_DP_Data.git)
 %
 %    (3) Edit or resave HFR_DR_master_SITE.m with the information specific
 %        to your SITE (i.e. LPWR), directories, and processing choices
