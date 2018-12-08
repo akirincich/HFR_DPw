@@ -9,6 +9,9 @@ COS radar site.
 
 See HFR_DP_SETUP_README.m for setup and package details.
 
+Cite as:
+Anthony Kirincich. (2018, December 8). akirincich/HFR_DPw: HFR_DP Software Package (Version v1.0). Zenodo. http://doi.org/10.5281/zenodo.2070683
+
 Anthony Kirincich
 WHOI-PO
 akirincich@whoi.edu
